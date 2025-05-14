@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>計算結果</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+        integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+        integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <link rel="stylesheet" href="CSS/style.css">
+    <link rel="stylesheet" href="CSS/style2.css">
+</head>
+
+<body id="bmrresult">
+
+    <div class="container">
+        <h1>計算結果</h1>
+        <p id="bmrResult"></p>
+        <p id="tdeeResult"></p>
+
+        <h2>PFCバランス(１日の摂取kcalの目安)</h2>
+        <div id="pfcContainer">
+            <div id="pfcResult"></div>
+        </div>
+
+        <h2>補足説明</h2>
+        <div id="explanation"></div>
+
+        <a href="bmrindex.html">戻る</a>
+
+        <script>
+            // URLパラメータから値を取得
+            const urlParams = new URLSearchParams(window.location.search);
+            const name = urlParams.get('name');
+            const tdee = parseFloat(urlParams.get('tdee'));
+            const weight = parseFloat(urlParams.get('weight'));
+
+            if (!tdee || !weight) {
+                document.body.innerHTML = "<h1>エラー: 入力データが不正です</h1><a href='index.html'>戻る</a>";
+            } else {
+                // PFC計算
+                const protein = weight * 2.5; // 体重の2.5倍
+                const fat = weight * 0.35; // 体重の35%
+                const carbs = (tdee - (protein * 4 + fat * 9)) / 4; // 炭水化物は残りのカロリーを計算
+
+                // カロリー計算
+                const proteinKcal = protein * 4;
+                const fatKcal = fat * 9;
+                const carbKcal = carbs * 4;
+
+                // PFCバランスの表示
+                document.getElementById('bmrResult').textContent = `${name}さんの総消費エネルギー量（TDEE）は約 ${tdee.toFixed(2)} kcal/日 です。`;
+                document.getElementById('pfcResult').innerHTML = `
+                <p><strong>タンパク質:</strong> 約 ${protein.toFixed(2)}g （摂取カロリー: ${proteinKcal.toFixed(2)} kcal(体重の2.5倍）</p>
+                <p><strong>脂質:</strong> 約 ${fat.toFixed(2)}g （摂取カロリー: ${fatKcal.toFixed(2)} kcal(体重の35%)）</p>
+                <p><strong>炭水化物:</strong> 約 ${carbs.toFixed(2)}g （摂取カロリー: ${carbKcal.toFixed(2)} kcal(残りkcal)）</p>
+            `;
+
+                // 補足説明
+                document.getElementById('explanation').innerHTML = `
+                <p><strong>PFCバランスを調整することは健康的なダイエットに欠かせません。</strong></p>
+                <ul>
+                    <li>過度に炭水化物を制限すると、リバウンドのリスクが高くなります。</li>
+                    <li>脂質も適度に摂取することで、ホルモンバランスを整え、健康的に痩せることができます。</li>
+                    <li>タンパク質は筋肉を維持し、代謝を落とさないために重要です。</li>
+                    <li>食物繊維（1g=4kcal）を20g以上含めると、消化を助け、満腹感が得られやすくなります。</li>
+                </ul>
+                <p>無理のないバランスで、健康的に目標達成を目指しましょう！</p>
+            `;
+            }
+        </script>
+
+</body>
+
+</html>

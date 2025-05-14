@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>登録内容確認</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+        integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+        integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <link rel="stylesheet" href="CSS/style.css">
+</head>
+
+<body>
+
+    <div class="form-container">
+        <h2>登録内容確認</h2>
+        <p><strong>名前:</strong> <span id="nameDisplay"></span></p>
+        <p><strong>メールアドレス:</strong> <span id="emailDisplay"></span></p>
+
+        <button onclick="goBack()" class="btn btn-lg btn-danger">修正する</button>
+        <button onclick="completeRegistration()" class="btn btn-lg btn-primary">登録を完了</button>
+
+        <!-- <button onclick="goBack()">修正する</button>
+        <button onclick="completeRegistration()">登録を完了</button> -->
+    </div>
+
+    <script>
+        // URLからパラメータを取得
+        const params = new URLSearchParams(window.location.search);
+        const name = params.get("name");
+        const email = params.get("email");
+
+        // 表示する
+        document.getElementById("nameDisplay").textContent = name;
+        document.getElementById("emailDisplay").textContent = email;
+
+        // 修正ページに戻る
+        function goBack() {
+            window.history.back();
+        }
+
+        // 登録完了後にメインページへ遷移
+        function completeRegistration() {
+            alert("登録が完了しました！メインページへ移動します。");
+            window.location.href = "main.html"; // 遷移先のページを指定
+        }
+    </script>
+
+</body>
+
+</html>

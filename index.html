@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>会員登録</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+        integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+        integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <link rel="stylesheet" href="CSS/style.css">
+
+<body>
+
+    <div class="form-container">
+        <h2>会員登録</h2>
+        <p>サイト閲覧のためには登録が必要です</p>
+        <form id="registerForm">
+            <label for="name">名前:</label>
+            <input type="text" id="name" required>
+
+            <label for="email">メールアドレス:</label>
+            <input type="email" id="email" required>
+
+            <label for="password">パスワード:</label>
+            <input type="password" id="password" required>
+
+            <label for="confirmPassword">パスワード確認:</label>
+            <input type="password" id="confirmPassword" required>
+
+            <button type="submit">登録</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById("registerForm").addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            var name = document.getElementById("name").value;
+            var email = document.getElementById("email").value;
+            var password = document.getElementById("password").value;
+            var confirmPassword = document.getElementById("confirmPassword").value;
+
+            // バリデーション
+            if (!name || !email || !password || !confirmPassword) {
+                alert("すべての項目を入力してください。");
+                return;
+            }
+
+            if (password !== confirmPassword) {
+                alert("パスワードが一致しません。");
+                return;
+            }
+
+            // 入力した内容を次のページへ渡すためにURLパラメータを作成
+            var queryParams = new URLSearchParams({
+                name: name,
+                email: email
+            }).toString();
+
+            // 会員登録内容を確認するページに遷移
+            window.location.href = "check.html?" + queryParams;
+        });
+    </script>
+
+</body>
+
+</html>

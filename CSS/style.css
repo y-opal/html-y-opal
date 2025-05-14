@@ -1,0 +1,132 @@
+header {
+    margin-top: 30px;
+    color: #2E99A9;
+}
+
+hr {
+    border-width: 3px;
+    border-color: #2E99A9;
+    margin: 30px 0;
+}
+
+h1 {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 0;
+}
+
+.align-right {
+    text-align: right;
+}
+
+@media only screen and (min-width:700px) and (max-width:992px) {
+    .radio-inline {
+        display: block;
+        margin: 0 !important;
+    }
+}
+
+/* 全体のフォントと背景 */
+body {
+    font-family: 'Noto Sans JP', sans-serif;
+    background-color: #f8f9fa;
+}
+
+/* ヘッダーのデザイン */
+header {
+    background-color: #007bff;
+    color: white;
+    padding: 15px;
+    text-align: center;
+}
+
+/* フォーム全体のデザイン */
+.form-container,
+.container {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* 入力フィールド */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="number"],
+textarea,
+select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    background-color: transparent;
+}
+
+/* ボタンのスタイル */
+button,
+.btn {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 5px;
+    border: none;
+    color: white;
+    background-color: #007bff;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+button:hover,
+.btn:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+/* ラベルとチェックボックスのデザイン */
+label {
+    font-weight: bold;
+}
+
+/* フッター */
+footer {
+    background-color: #343a40;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    margin-top: 20px;
+}
+
+/* スマホ対応 */
+@media (max-width: 576px) {
+
+    .form-container,
+    .container {
+        width: 95%;
+        padding: 15px;
+    }
+}
+
+/* #bmrresult {
+    background-image: url("img/neko2.jpg");
+    background-size: 25%;
+    /* 画面いっぱいに表示 */
+/* background-position: left; */
+/* 中央寄せ */
+/* background-repeat: no-repeat; */
+/* 繰り返さない */
+
+/* } */
+
+#bmrresult {
+    background-image: url("img/neko2.jpg"), url("img/neko1.jpg");
+    background-position: left, right;
+    /* 画像ごとの位置 */
+    background-size: 25% auto, 25% auto;
+    /* サイズ調整 */
+    background-repeat: no-repeat, no-repeat;
+    /* 繰り返しなし */
+
+}

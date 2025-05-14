@@ -1,0 +1,171 @@
+/* 全体のスタイル */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f4f7fa;
+    margin: 0;
+    padding: 0;
+    font-size: 1.6rem;
+    /* 全体の文字サイズを大きく */
+}
+
+.container {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+    font-size: 3.5rem;
+    /* 見出しを大きく */
+    margin-bottom: 20px;
+}
+
+p {
+    text-align: center;
+    font-size: 1.8rem;
+    /* パラグラフのフォントサイズを大きく */
+    color: #555;
+    margin-bottom: 30px;
+}
+
+/* フォームスタイル */
+form {
+    display: grid;
+    gap: 20px;
+    /* フォーム項目間の間隔を広げる */
+}
+
+label {
+    font-weight: bold;
+    color: #333;
+    font-size: 1.6rem;
+    /* ラベルのフォントサイズを大きく */
+}
+
+input,
+select {
+    padding: 15px;
+    font-size: 1.6rem;
+    /* 入力フィールドの文字サイズを大きく */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 100%;
+}
+
+button {
+    background-color: #007bff;
+    color: white;
+    padding: 15px 25px;
+    border: none;
+    border-radius: 4px;
+    font-size: 1.8rem;
+    /* ボタンの文字サイズを大きく */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* 結果表示スタイル */
+#result {
+    margin-top: 40px;
+    padding: 25px;
+    background-color: #e9f7fc;
+    border-radius: 8px;
+    border: 1px solid #b0e0f1;
+    text-align: center;
+}
+
+#bmrResult,
+#tdeeResult {
+    font-size: 1.8rem;
+    /* 結果の文字サイズを大きく */
+    color: #333;
+    margin-bottom: 15px;
+}
+
+/* レスポンシブデザイン */
+@media (max-width: 600px) {
+    .container {
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 2.8rem;
+        /* 見出しを小さめに */
+    }
+
+    p,
+    label {
+        font-size: 1.5rem;
+    }
+
+    input,
+    select {
+        font-size: 1.6rem;
+    }
+
+    button {
+        padding: 15px 25px;
+        font-size: 1.6rem;
+    }
+}
+
+#pfcContainer {
+    border: 2px solid #3498db;
+    background-color: #f0f8ff;
+    padding: 15px;
+    margin: 15px 0;
+    border-radius: 8px;
+}
+
+#explanation {
+    border: 2px solid #2ecc71;
+    background-color: #e9f7ef;
+    padding: 15px;
+    margin: 15px 0;
+    border-radius: 8px;
+}
+
+ul {
+    padding-left: 20px;
+}
+
+全体のコンテンツ幅を調整 body {
+    display: flex;
+    justify-content: center;
+}
+
+.container {
+    max-width: 600px;
+    /* 最大幅を600pxに制限 */
+    width: 90%;
+    /* 画面幅に対して適度なサイズ */
+}
+
+/* h2 のフォントサイズを調整 */
+h2 {
+    font-size: 1.5rem;
+    /* 以前より少し小さく */
+}
+
+/* PFCバランスのボックスをコンパクトに */
+#pfcContainer {
+    padding: 10px;
+    /* 余白を減らす */
+    font-size: 0.9rem;
+    /* 文字を少し小さく */
+}
+
+/* 補足説明も調整 */
+#explanation {
+    padding: 10px;
+    font-size: 1.3rem;
+}
